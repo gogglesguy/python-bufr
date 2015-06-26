@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 #
 # python-bufr , wrapper for ECMWF BUFR library
-# 
+#
 # Copyright (C) 2012  Kristian Rune Larsen
 #
 # This program is free software: you can redistribute it and/or modify
@@ -22,14 +22,14 @@
 
 import os
 import sys
-from setuptools import setup, Extension 
+from setuptools import setup, Extension
 
 BUFRFile = Extension('bufr/_BUFRFile',
-                     sources = ['bufr/_BUFRFile.c',], 
+                     sources = ['bufr/_BUFRFile.c',],
                      extra_compile_args = ['-O3','-g','-fstack-protector-all',
-                         '-D_FORTIFY_SOURCE=2'], 
-                     extra_link_args = [], 
-                     libraries = ['gfortran',],)
+                         '-D_FORTIFY_SOURCE=2'],
+                     extra_link_args = [],
+                     libraries = ['bufr','gfortran',],)
 setup(name='python-bufr',
       version='0.2-6',
       description='Generic Python BUFR file reader based on the ECMWF BUFR library',
